@@ -1,0 +1,61 @@
+1. (NEW) What are the results for each of the programs? In your report, include the program name, and copy/paste the output.
+
+Example1.java Output:
+
+40	      42	40	40	40	
+81	      79	79	79	78	
+156	      118	120	117	118	
+155	      158	172	157	158	
+209	      193	201	230	218	
+244	      263	243	247	231	
+288	      271	271	269	285	
+346	      326	328	323	317	
+370	      367	364	367	367	
+
+Example2.java Output:
+
+61	      72	40	63	48	
+164	      168	163	164	161	
+367	      357	359	351	362	
+621	      633	627	617	620	
+1013	      1117	974	978	973	
+1427	      1382	1386	1390	1458	
+1899	      1893	1934	1896	1949	
+2518	      2498	2437	2469	2492	
+3111	      3095	3207	3231	3100	
+
+Example3.java Output:
+
+59	      56	62	65	41	
+168	      166	164	162	162	
+345	      343	342	351	343	
+609	      611	608	607	607	
+965	      945	947	952	1009	
+1450	      1362	1365	1360	1365	
+1853	      1901	1929	1856	1906	
+2475	      2527	2469	2445	2494	
+3201	      3074	3084	3111    3168
+
+Example4.java Output:
+
+63	      54	54	53	53	
+136	      136	136	157	136	
+354	      396	354	353	372	
+938	      927	925	923	963	
+2463	      2421	2414	2422	2491	
+6329	      6402	6348	6483	6469	
+16925	      16688	17003	16629	16756	
+44237	      43994	43780	43764	43749	
+115759	      117642	114398	116216	115521	
+
+2. Explain (in complete sentences) how each algorithm compares quantitatively. How much faster does the time grow for each algorithm as compared to the others? (NEW) “Quantitatively” means to explain with actual numbers. Don’t just say “a lot faster”. Generally correct answers will receive full credit. Explain in at least 3 sentences.
+
+The first algorithm's times increases linearly, increasing by about 40 milliseconds each time N is increased. For example, the times go from around 40 to 80 to 120 to 160 milliseconds and so on. However, the second algorithm's times increases exponentially. The difference between the first time and the second time is around 100 milliseconds, between the second and third times around 200 milliseconds, between the third and fourth times around 300 milliseconds, and so on. The third algorithm's times were similar to the second algorithms, with the differences between each time being about the same value (100ms, 200ms, 300ms). However, the fourth algorithm's times increase at an even faster rate, with the differences between times going from around 80ms, 120ms, 300ms, 1500ms, and so on.
+
+3. What do you notice about the results that might be unexpected? Explain in at least 2 – 3 sentences. (NEW) Any reasonable explanation will receive full credit.
+
+There are several things about the results that were unexpected. First, there were sometimes inconsistencies between each trial with the same N value. For example, in Example2.java, the times from one N value ranged from 973 milliseconds to 1117 milliseconds. Secondly, the times from Example3.java were generally slightly lower than the times in Example2.java, despite the fact that Example3.java was O(n^2 + n), and Example2.java was simply O(n^2) and that I used the same N values for each algorithm.
+
+4. Offer a possible explanation for the unexpected results in question (2) above. Explain in at least 2 – 3 sentences. Note that students are not expected to know the answer to this. Any reasonable explanation will receive full credit.
+
+One thing that can account for the inconsistencies of the times could be the different processes going on in the background. Each time an algorithm runs the loop, it may need to wait for another process in the background to finish, or something of that sort. For the differences between Example2.java and Example3.java, I have no idea, but it could be because the first for loop was already run by the time the program reached the nested for loop.
