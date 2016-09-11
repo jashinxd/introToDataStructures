@@ -1,0 +1,80 @@
+Jason Shin (jjs270)
+1. For an array A of size N = 3, there are six possible subsequences: A1 , A2 , A3 , A1 A2 , A2 A3 , A1 A2 A3 .
+How many subsequences are possible for N = 4? Show your work.
+
+Subsequences: A1, A2, A3, A4, A1 A2, A2 A3, A3 A4, A1 A2 A3, A2 A3 A4, A1 A2 A3 A4
+
+(4) subsequences of length 1 +
+(3) subsequences of length 2 +
+(2) subsequences of length 3 +
+(1) subsequence of length 4 =
+ANSWER = 10
+
+2. Derive a formula for the total number of possible subsequences for an arbitrary size N. You may use any
+combination of diagrams, equations, and written logic. Hint: visualize a 2-D grid where one dimension
+represents the starting index of each subsequence (0 to N-1) and the other dimension represents the length
+of the subsequence (1 to N).
+
+If we have an array of size N, the maximum subsequence size will be the entire length of the array,
+N, and there is only 1 subsequence that can be created of size N. If we decrease the size
+of the subsequence by 1 (N - 1), there are now 2 subsequences that can be created of size N - 1
+(one that starts from index 0 to index N - 2 and one that starts from index 1 to index N - 1). If
+we decrease the size of the subsequence by 1 again, there are now 3 subsequences that can be created
+of size N - 2. (A[0] to A[N - 3], A[1] to A[N - 2], A[2] to A[N - 1]). If we continue this pattern,
+we will reach a point where the subsequences are a length of 1, with N possible subsequences. Therefore,
+the total number of possible subsequences is the sum of all integers from 1 to N.
+
+EQUATION:
+  N
+  Σ x = 1 + 2 + ... + N-1 + N = N * (N + 1) / 2
+  1
+
+EXAMPLE:
+  Total number of possible subsequences for size 5 = 5 + 4 + 3 + 2 + 1 = 15
+  	       	  	   		    	   = 5 * (5 + 1) / 2 = 30 / 2 = 15
+ANSWER = N * (N + 1) / 2
+
+3. Algorithm #1 (Figure 2.5) in the Weiss book, which was discussed in class, is very inefficient. One reason
+is that it redundantly computes sums for some subsequences. For the case N = 3, the sum of A 1 is
+computed three times (A 1 , A 1 A 2 , A 1 A 2 A 3 ). Likewise, the sum of A 2 is computed twice (A 2 , A 2 A 3 ), and the
+sum of A 1 A 2 is computed twice (A 1 A 2 , A 1 A 2 A 3 ). The following analysis table shows the number of
+summations performed for each subsequence:
+ ------------------------------------------------------------------------
+|Subsequence:    |   A1   |   A2   |   A3   | A1  A2 | A2  A3 | A1 A2 A3 |
+|------------------------------------------------------------------------|
+|# of summations:|   3	  |   2	   |   1    |   2    |	 1    |    1     |
+ ------------------------------------------------------------------------
+Any instance of repeating a summation is redundant. By this definition, there are a total of 4 redundant
+summations in the table above. Repeat the above analysis for N = 4. Show your work.
+
+For the case N = 4:
+Sum of A1       calculated 4 times (A1, A1 A2, A1 A2 A3, A1 A2 A3 A4)
+Sum of A2       calculated 3 times (A2, A2 A3, A2 A3 A4)
+Sum of A3       calculated 2 times (A3, A3 A4)
+Sum of A1 A2    calculated 3 times (A1 A2, A1 A2 A3, A1 A2 A3 A4)
+Sum of A2 A3    calculated 2 times (A2 A3, A2 A3 A4)
+Sum of A1 A2 A3 calculated 2 times (A1 A2 A3, A1 A2 A3 A4)
+
+ -----------------------------------------------------------------------------------------------
+|Subsequence:    | A1 | A2 | A3 | A4 | A1 A2 | A2 A3 | A3 A4 | A1 A2 A3 | A2 A3 A4 | A1 A2 A3 A4 |
+|------------------------------------------------------------------------------------------------|
+|# of summations:| 4  | 3  | 2  | 1  |	3    |   2   |   1   |    2     |    1     |      1      |
+ -----------------------------------------------------------------------------------------------
+
+In this case, there are a total of 3 + 2 + 1 + 2 + 1 + 1 = 10 redundant summations.
+
+4. Write a program that computes the number of redundancies for a range of N values. Display the values of
+N, the number of subsequences using your formula from problem #2, and the number of redundancies.
+Below is an example of how your output might look. Exact formatting is not important. Hint: one
+approach is to use the original triple-loop algorithm and maintain an array of counters for each
+subsequence, similar to the 2-D grid that was suggested for problem #2 above. Other approaches may be
+possible too.
+
+Output of redundancies.java:
+N = 10. Subsequences = 55. Redundancies = 165.
+N = 15. Subsequences = 120. Redundancies = 560.
+N = 20. Subsequences = 210. Redundancies = 1330.
+N = 25. Subsequences = 325. Redundancies = 2600.
+N = 30. Subsequences = 465. Redundancies = 4495.
+N = 35. Subsequences = 630. Redundancies = 7140.
+N = 40. Subsequences = 820. Redundancies = 10660.

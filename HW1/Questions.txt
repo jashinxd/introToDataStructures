@@ -1,3 +1,5 @@
+Jason Shin (jjs270)
+
 1. (NEW) What are the results for each of the programs? In your report, include the program name, and copy/paste the output.
 
 Example1.java Output:
@@ -54,7 +56,7 @@ The first algorithm's times increases linearly, increasing by about 40 milliseco
 
 3. What do you notice about the results that might be unexpected? Explain in at least 2 – 3 sentences. (NEW) Any reasonable explanation will receive full credit.
 
-There are several things about the results that were unexpected. First, there were sometimes inconsistencies between each trial with the same N value. For example, in Example2.java, the times from one N value ranged from 973 milliseconds to 1117 milliseconds. Secondly, the times from Example3.java were generally slightly lower than the times in Example2.java, despite the fact that Example3.java was O(n^2 + n), and Example2.java was simply O(n^2) and that I used the same N values for each algorithm.
+There are several things about the results that were unexpected. First, there were sometimes inconsistencies between each trial with the same N value. For example, in Example2.java, the times from one N value ranged from 973 milliseconds to 1117 milliseconds. Secondly, the times from Example3.java were generally slightly lower than the times in Example2.java, despite the fact that Example3.java was O(n^2 + n), and Example2.java was simply O(n^2), and that I used the same N values for each algorithm.
 
 4. Offer a possible explanation for the unexpected results in question (2) above. Explain in at least 2 – 3 sentences. Note that students are not expected to know the answer to this. Any reasonable explanation will receive full credit.
 

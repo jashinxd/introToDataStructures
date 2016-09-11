@@ -1,0 +1,30 @@
+EECS 132
+   
+8/29/30
+   ADT - Abstract Data Structures
+   
+   Professor Chris Fietkiewicz
+      Talking in person is best.
+         * Schmitt
+         * After Lecture (Tues/Thurs) or by appointment. No office hours.
+
+   Heavily Dependent on Blackboard.
+   
+   Teaching Assistant
+      * Assigned to one of 6 teaching assistant-Blackboard grade center.
+      * Grading, help (email, in-person)
+
+   Supplemental Instruction: Brian Clark
+      * Regularly scheduled study sessions. Practice problems and group
+      	discussions. 2 sessions a week. 1 of them will be focused on the
+     	homework. Other will be preparing for a quiz, etc.
+      * Open to all students.
+
+   HW - 20% - 9 Homework Assignments
+   Quizzes - 20% - Every Tuesday - 9 Quizzes
+   3 Exams + Optional Final Exam - 50%
+   Final Project - 10%
+      * Working in teams of 2
+      * EX) Your project has to include ...
+
+    
