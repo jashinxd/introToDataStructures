@@ -1,4 +1,4 @@
-
+//Jason Shin (jjs270)
 public class MyArrayList<AnyType> implements Iterable<AnyType>
 {
     /**

@@ -56,7 +56,7 @@ public class DriverArrayList {
     public static void main(String[] args) {
         long startTime, stopTime;
 	MyArrayList<Integer> arrLst = new MyArrayList<Integer>();
-	int N = 100000;
+	int N = 200000;
 
 	//Tests for MyArrayList
 	System.out.println("MyArrayList...");
@@ -65,14 +65,14 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	addNToEnd(arrLst, N);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Add to end: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Add to end: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	arrLst.clear();
 	
 	//1b. Adding values to beginning of data structure
 	startTime = System.currentTimeMillis();
 	addNToBegin(arrLst, N);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Add to beginning: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Add to beginning: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	arrLst.clear();
 	
 	//1c. Adding then removing from end without an iterator
@@ -81,7 +81,7 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	rmEndNoIter(arrLst, N);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Remove from end: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Remove from end: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	//System.out.println(arrLst.isEmpty());
 	arrLst.clear();
 
@@ -91,7 +91,7 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	rmBeginNoIter(arrLst, N);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Remove from beginning: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Remove from beginning: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	arrLst.clear();
 
 	//1e. Adding then removing from beginning with an iterator
@@ -102,7 +102,7 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	rmBeginWithIter(arrLst, N, itr);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Remove from beginning with iterator: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Remove from beginning with iterator: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	//System.out.println(arrLst.isEmpty());
 	arrLst.clear();	
 
@@ -113,7 +113,7 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	sum = summation(arrLst, N, sum);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Summing all elements: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Summing all elements: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	//System.out.println(sum);
 	arrLst.clear();		
 
@@ -121,7 +121,7 @@ public class DriverArrayList {
 	startTime = System.currentTimeMillis();
 	add0ToEndNTimes(arrLst, N);
 	stopTime = System.currentTimeMillis();
-	System.out.println("Add to 0 end N times: N = " + N + ", t = " + (stopTime - startTime) + "ms");
+	System.out.println("Add to 0 end N times: N = " + N + ", t = " + ((stopTime - startTime) / 1000.0) + "sec");
 	//System.out.println(arrLst);
 	arrLst.clear();
 	

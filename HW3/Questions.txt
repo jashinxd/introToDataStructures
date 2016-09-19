@@ -1,0 +1,37 @@
+Jason Shin (jjs270)
+
+1.
+MyArrayList...
+Add to end: N = 200000, t = 0.013sec
+Add to beginning: N = 200000, t = 18.282sec
+Remove from end: N = 200000, t = 0.005sec
+Remove from beginning: N = 200000, t = 16.542sec
+Remove from beginning with iterator: N = 200000, t = 16.554sec
+Summing all elements: N = 200000, t = 0.005sec
+Add to 0 end N times: N = 200000, t = 0.008sec
+
+MyLinkedList...
+Add to end: N = 200000, t = 0.021sec
+Add to beginning: N = 200000, t = 0.019sec
+Remove from end: N = 200000, t = 0.009sec
+Remove from beginning: N = 200000, t = 0.013sec
+Remove from beginning with iterator: N = 200000, t = 0.007sec
+Summing all element: N = 200000, t = 34.586sec
+Add to 0 end N times: N = 200000, t = 0.007sec
+
+2. Explain in a typed report how the results in #1 compare to the expected O(N) time discussed in class and the
+textbook. Discuss whether the run time for each operation is reasonable, as compared to the other operations
+for the same data structure and for the other data structure.
+
+The results in #1 matched the expected O(N) times that appeared in the textbook. When adding elements to the end of the list,
+both ArrayList and LinkedList implementations were O(N), as nothing has to be shifted over in the ArrayList, and adding elements
+to a list is cheap for LinkedList. However, when adding elements to the beginning of the list, the ArrayList implementation
+was O(N^2), because you have to shift all of the other elements in the list over, while the LinkedList implementation only
+needs to make a new node with a pointer to the start of the original list. This same pattern occurs for removing elements for
+the same reasons (removing element from end of list was O(N) for both, while removing element from the beginning was O(N^2) for
+ArrayList and O(N) for LinkedList). In terms of summation of the list, ArrayList is O(N), because the get method for ArrayLists
+simply requires the index. However, LinkedList is O(N^2), because the get method requires iteration through the LinkedList every time.
+
+Adding to the end for an ArrayList is reasonable. If adding to and removing from the end of a list is all you need to do,
+using ArrayLists should be fine. However, if you need to add and remove from any other place in the list, using LinkedLists
+is more reasonable. If you need to access data a lot, using ArrayLists is more reasonable than using LinkedList.

@@ -1,3 +1,4 @@
+//Jason Shin (jjs270)
 /**
  * LinkedList class implements a doubly-linked list.
  */
