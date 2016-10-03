@@ -1,6 +1,7 @@
 public class Driver {
 
-    public static boolean checkParens(String str) {
+    // Checks to see if parenthesis are balanced.
+    public static String checkParens(String str) {
 	StackList<String> stack = new StackList<String>();
 	for (int i = 0; i < str.length(); i++) {
 	    switch (str.charAt(i)) {
@@ -9,16 +10,21 @@ public class Driver {
 		break;
 	    case ')':
 		if (stack.isEmpty()) {
-		    return false;
+		    return "Parenthesis are NOT balanced";
 		}
 		stack.pop();
 		break;
 	    }
 	}
-	return stack.isEmpty();			
+        if (stack.isEmpty()) {
+	    return "Parenthesis are balanced";
+	} else {
+	    return "Parenthesis are NOT balanced";
+	}
     }
 
-    public static double calcInfix(String str) {
+    // Solves infix expression. Only works with single digits.
+    public static String calcInfix(String str) {
 	StackList<Double> nums = new StackList<Double>();
 	StackList<Character> ops = new StackList<Character>();
 	for (int i = 0; i < str.length(); i++) {
@@ -47,10 +53,11 @@ public class Driver {
 		ops.push(currChar);
 	    }
 	}
-	return nums.pop();
+	return "Result = " + nums.pop();
     }
-    
-    public static double calcPostfix(String str) {
+
+    // Solves postfix expression. Only works with single digits. 
+    public static String calcPostfix(String str) {
 	StackList<Character> stack = new StackList<Character>();
 	for (int i = 0; i < str.length(); i++) {
 	    //System.out.println(stack);
@@ -76,9 +83,10 @@ public class Driver {
 		stack.push((char)(result + '0'));
 	    }
 	}
-	return stack.pop() - '0';
+	return "Result = " + ((double)stack.pop() - '0');
     }
 
+    //Main method. Executes test cases.
     public static void main( String[] args ) {	
 	System.out.println(checkParens("(2*(3+4)-5)/6") + ": should be true");
 	System.out.println(checkParens("(2*(3+4-5)/6") + ": should be false");
