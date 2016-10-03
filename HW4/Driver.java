@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 public class Driver {
 
     // Checks to see if parenthesis are balanced.
@@ -82,21 +84,61 @@ public class Driver {
 		//System.out.println(operand1 + " " + operator + " " + operand2 + " = " + result);
 		stack.push((char)(result + '0'));
 	    }
+	} try {
+	    return "Result = " + ((double)stack.pop() - '0');
 	}
-	return "Result = " + ((double)stack.pop() - '0');
+	catch (Exception e) {
+	    return "Invalid Input";
+	}
     }
 
     //Main method. Executes test cases.
-    public static void main( String[] args ) {	
-	System.out.println(checkParens("(2*(3+4)-5)/6") + ": should be true");
-	System.out.println(checkParens("(2*(3+4-5)/6") + ": should be false");
-	System.out.println(checkParens("2*(3+4)-5)/6") + ": should be false");
-	System.out.println(checkParens(")()()()(") + ": should be false");
-	System.out.println(calcPostfix("23+4*"));
-	System.out.println(calcPostfix("6523+8*+3+*"));
-	System.out.println(calcPostfix("328+*50+-"));
-	System.out.println(calcInfix("(((1+2)+3)+4)"));
-	System.out.println(calcInfix("(((2*(3+4))-5)/3)"));
+    public static void main( String[] args ) {
+	Scanner sc = new Scanner(System.in);
+	String parensInput = "";
+	String infixInput = "";
+	String postfixInput = "";
+	while (parensInput == "") {
+	    System.out.println("1. Check to see if an expression has correctly balanced parenthesis.");
+	    System.out.print("   Enter Expression: ");
+	    parensInput = sc.nextLine();
+	    System.out.println("   " + checkParens(parensInput));     
+	}
+	while (infixInput == "") {
+	    System.out.println("2. Solves an infix notation.");
+	    System.out.print("   Enter Expression: ");
+	    infixInput = sc.nextLine();
+	    System.out.println("   " + calcInfix(infixInput));
+	}
+	while (postfixInput == "") {
+	    System.out.println("3. Solves an postfix notation.");
+	    System.out.print("   Enter Expression: ");
+	    postfixInput = sc.nextLine();
+	    System.out.println("   " + calcPostfix(postfixInput));
+	}
+	System.out.println("\nTest cases:");
+	System.out.println("Check Balanced Parenthesis");
+	System.out.print("1. Input: (2*(3+4)-5)/6\t");
+	System.out.print(checkParens("(2*(3+4)-5)/6") + "\n");
+	System.out.print("2. Input: (2*(3+4-5)/6\t");
+	System.out.print(checkParens("(2*(3+4-5)/6") + "\n");
+	System.out.print("3. Input: 2*(3+4)-5)/6\t");
+	System.out.print(checkParens("2*(3+4)-5)/6") + "\n");
+	System.out.print("4. Input: )()()()(\t");
+	System.out.print(checkParens(")()()()(") + "\n");
+	
+	System.out.println("Infix Notation: ");
+	System.out.print("1. Input: (((1+2)+3)+4) \t");
+	System.out.print(calcInfix("(((1+2)+3)+4)") + "\n");
+	System.out.print("2. Input: (((2*(3+4))-5)/3) \t");
+	System.out.print(calcInfix("(((2*(3+4))-5)/3)") + "\n");
+
+	System.out.println("Postfix Notation: ");
+	System.out.print("1. Input: 23+4* \t");
+	System.out.print(calcPostfix("23+4*") + "\n");
+	System.out.print("2. Input: 6523+8*+3+* \t");
+	System.out.print(calcPostfix("6523+8*+3+*") + "\n");
+	//System.out.println(calcPostfix("328+*50+-"));
     }
     
 }
