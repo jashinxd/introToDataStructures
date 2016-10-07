@@ -92,7 +92,7 @@ public class Driver {
 	}
     }
 
-    //Main method. Executes test cases.
+    //Main method. Takes input for the different methods. Executes test cases.
     public static void main( String[] args ) {
 	Scanner sc = new Scanner(System.in);
 	String parensInput = "";
