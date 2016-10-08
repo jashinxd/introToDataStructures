@@ -1,3 +1,5 @@
+//Jason Shin (jjs270)
+
 import java.io.*;
 import java.util.*;
 
@@ -86,7 +88,7 @@ public class ExpressionTree
 		    if (Character.isDigit(currChar)) {
 			children.push(newNode);
 		    }
-		    if (currChar != '(') {
+		    else if (currChar != '(') {
 		        parents.push(newNode);
 		    }
 		}

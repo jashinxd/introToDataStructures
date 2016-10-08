@@ -1,0 +1,102 @@
+Jason Shin (jjs270)
+
+2. In your report, draw the state of a binary tree after each of the following (in order a – n):
+a. Insert 9
+        9
+b. Insert 3
+   	9
+       /
+      3
+c. Insert 2
+        9
+       /
+      3
+     /
+    2
+d. Insert 1
+        9
+       /
+      3
+     /
+    2
+   /
+  1
+e. Insert 6
+        9
+       /
+      3
+     / \
+    2   6
+   /
+  1
+f. Insert 7
+        9
+       /
+      3
+     / \
+    2   6
+   /     \
+  1       7
+g. Insert 5
+        9
+       /
+      3
+     / \
+    2   6
+   /   / \
+  1   5   7
+h. Insert 4
+        9
+       /
+      3
+     / \
+    2   6
+   /   / \
+  1   5   7
+     /
+    4
+i. Insert 8
+        9
+       /
+      3
+     / \
+    2   6
+   /   / \
+  1   5   7
+     /     \
+    4       8
+j. Remove 8
+        9
+       /
+      3
+     / \
+    2   6
+   /   / \
+  1   5   7
+     /
+    4
+k. Remove 5
+        9
+       /
+      3
+     / \
+    2   6
+   /   / \
+  1   4   7    
+l. Remove 6
+        9
+       /
+      3
+     / \
+    2   7
+   /   / 
+  1   4   
+m. Remove 3
+        9
+       /
+      4
+     / \
+    2   7
+   /    
+  1   
+n. Remove 9

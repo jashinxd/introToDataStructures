@@ -1,3 +1,5 @@
+//Jason Shin (jjs270)
+
 public class StackList<AnyType> {
 
     // Stack represented by a LinkedList
