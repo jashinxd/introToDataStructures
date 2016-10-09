@@ -13,6 +13,9 @@
 // boolean isEmpty( )     --> Return true if empty; else false
 // void makeEmpty( )      --> Remove all items
 // void printInorder( )      --> Print tree in sorted order
+// NEW METHODS:
+// void printPostorder()  --> Print tree in postorder
+// void printPreorder()   --> Print tree in preorder
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
@@ -55,8 +58,8 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
      */
     public AnyType findMin( )
     {
-//        if( isEmpty( ) )
-//            throw new UnderflowException( );
+	//        if( isEmpty( ) )
+	//            throw new UnderflowException( );
         return findMin( root ).element;
     }
 
@@ -66,8 +69,8 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
      */
     public AnyType findMax( )
     {
-//        if( isEmpty( ) )
-//            throw new UnderflowException( );
+	//        if( isEmpty( ) )
+	//            throw new UnderflowException( );
         return findMax( root ).element;
     }
 
@@ -109,6 +112,32 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
             printInorder( root );
     }
 
+    /** NEW METHOD
+     * Print the tree contents in postorder.
+     */
+    public void printPostorder() {
+	if (isEmpty()) {
+	    System.out.println("Empty Tree");
+	}
+	else {
+	    printPostorder(root);
+	    System.out.println("");
+	}
+    }
+
+    /** NEW METHOD
+     * Print the tree contents in postorder.
+     */
+    public void printPreorder() {
+	if (isEmpty()) {
+	    System.out.println("Empty Tree");
+	}
+	else {
+	    printPreorder(root);
+	    System.out.println("");
+	}
+    }
+    
     /**
      * Internal method to insert into a subtree.
      * @param x the item to insert.
@@ -149,10 +178,10 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
         else if( compareResult > 0 )
             t.right = remove( x, t.right );
         else if( t.left != null && t.right != null ) // Two children
-        {
-            t.element = findMin( t.right ).element;
-            t.right = remove( t.element, t.right );
-        }
+	    {
+		t.element = findMin( t.right ).element;
+		t.right = remove( t.element, t.right );
+	    }
         else
             t = ( t.left != null ) ? t.left : t.right;
         return t;
@@ -214,12 +243,38 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
     private void printInorder( BinaryNode<AnyType> t )
     {
         if( t != null )
-        {
-            printInorder( t.left );
-            System.out.print( t.element );
-			System.out.print(" ");
-            printInorder( t.right );
-        }
+	    {
+		printInorder( t.left );
+		System.out.print( t.element );
+		System.out.print(" ");
+		printInorder( t.right );
+	    }
+    }
+
+    /** NEW METHOD
+     * Internal method to print a subtree in postorder
+     * @param t the node that roots the subtree
+     */
+    private void printPostorder(BinaryNode<AnyType> t) {
+	if (t != null) {
+	    printPostorder(t.left);
+	    printPostorder(t.right);
+	    System.out.print(t.element);
+	    System.out.print(" ");
+	}
+    }
+
+    /** NEW METHOD
+     * Internal method to print a subtree in postorder
+     * @param t the node that roots the subtree
+     */
+    private void printPreorder(BinaryNode<AnyType> t) {
+	if (t != null) {
+	    System.out.print(t.element);
+	    System.out.print(" ");
+	    printPreorder(t.left);
+	    printPreorder(t.right);
+	}
     }
 
     /**
@@ -237,7 +292,7 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
     // Basic node stored in unbalanced binary search trees
     private static class BinaryNode<AnyType>
     {
-            // Constructors
+	// Constructors
         BinaryNode( AnyType theElement )
         {
             this( theElement, null, null );
@@ -256,17 +311,24 @@ public class BinarySearchTree2<AnyType extends Comparable<? super AnyType>>
     }
 
 
-      /** The tree root. */
+    /** The tree root. */
     private BinaryNode<AnyType> root;
 
 
-        // Test program
+    // Test program
     public static void main( String [ ] args )
     {
-		int[] x = {5, 2, 8, 1, 3, 9, 7, 4, 6};
-        BinarySearchTree2<Integer> t = new BinarySearchTree2<>( );
+	//int[] x = {5, 2, 8, 1, 3, 9, 7, 4, 6};
+	int[] x = {9, 3, 2, 1, 6, 7, 5, 4, 8};
+	BinarySearchTree2<Integer> t = new BinarySearchTree2<>( );
         for(int i = 0; i < x.length; i++)
             t.insert(x[i]);
-		t.printInorder();
+	System.out.println("Print inorder: ");
+	t.printInorder();
+	System.out.println();
+	System.out.println("Print preorder: ");
+	t.printPreorder();
+	System.out.println("Print postorder: ");
+	t.printPostorder();
     }
 }

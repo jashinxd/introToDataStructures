@@ -1,5 +1,16 @@
 Jason Shin (jjs270)
 
+1. Revise ExpressionTree.java as explained below. Demonstrate these revisions and include sample output in your report.
+   a. In order to create the compute method, I created a stack of doubles called nums to keep track of all the operands
+      that I would be using. In the method, I followed steps similar to the printPostfix method. I checked to see if the
+      node passed in as an argument was not null. Then I checked if the left and right nodes were not null, in which case
+      compute would be run on both of them. If the node's data value is a digit, I would convert the char to a double and
+      push it to the nums stack. If the node's data value is not a digit (in other words, an operation), I would pop two
+      values from the nums stack and perform the operation, then push the result back onto the stack.
+
+      Sample Output:
+      
+
 2. In your report, draw the state of a binary tree after each of the following (in order a – n):
 a. Insert 9
         9
@@ -100,3 +111,5 @@ m. Remove 3
    /    
   1   
 n. Remove 9
+
+3. 
