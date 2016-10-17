@@ -90,7 +90,7 @@ a. What are the contents of the array? List them in order, starting with index #
 maximum index for the array (not the last value in the heap). The maximum index for the array is the
 largest index for a full tree with the same number of levels.
 
-Values:  [ ][1][2][3][4][6][7][5][9][8][ ][ ][ ][ ][ ][ ]
+Values:  [8][1][2][3][4][6][7][5][9][8][ ][ ][ ][ ][ ][ ]
 Indices:  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
 
 b. Give three (3) more unique insertion sequences that would generate the same tree. To be different, two
