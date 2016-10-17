@@ -1,0 +1,102 @@
+1. In your report, draw the state of a binary heap after each of the following (in order a – n):
+a. Insert 9
+        9
+b. Insert 3
+        3
+       /
+      9
+c. Insert 2
+        2
+       / \
+      9   3
+d. Insert 1
+        1
+       / \
+      2   3
+     /
+    9
+e. Insert 6
+        1
+       / \
+      2   3
+     / \
+    9   6
+f. Insert 7
+         1
+       /   \
+      2     3
+     / \   /
+    9   6 7
+g. Insert 5
+         1
+       /   \
+      2     3
+     / \   / \
+    9   6 7   5 
+h. Insert 4
+         1
+       /   \
+      2     3
+     / \   / \
+    4   6 7   5
+   /
+  9
+i. Insert 8
+         1
+       /   \
+      2     3
+     / \   / \
+    4   6 7   5
+   / \
+  9   8
+j. Remove minimum
+         2
+       /   \
+      4     3
+     / \   / \
+    8   6 7   5
+   / 
+  9   
+k. Remove minimum
+         3
+       /   \
+      4     5
+     / \   / \
+    8   6 7   9
+l. Remove minimum
+         4
+       /   \
+      6     5
+     / \   / 
+    8   9 7   
+m. Remove minimum
+         5
+       /   \
+      6     7
+     / \    
+    8   9  
+n. Remove minimum
+         6
+       /   \
+      8     7
+     /     
+    9
+
+
+2. Using the tree created in problem #1 for steps (a) through (i), not including removals, answer the following
+in your report. Note that this tree will have 9 nodes.
+
+a. What are the contents of the array? List them in order, starting with index #0 and ending with the
+maximum index for the array (not the last value in the heap). The maximum index for the array is the
+largest index for a full tree with the same number of levels.
+
+Values:  [ ][1][2][3][4][6][7][5][9][8][ ][ ][ ][ ][ ][ ]
+Indices:  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+
+b. Give three (3) more unique insertion sequences that would generate the same tree. To be different, two
+or more values must be in a different order.
+
+ORIGINAL: Insert 9 3 2 1 6 7 5 4 8
+       1: Insert 9 7 2 1 6 3 5 4 8
+       2: Insert 7 9 2 1 6 3 5 4 8
+       3: Insert 7 9 2 6 1 3 5 4 8

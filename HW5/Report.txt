@@ -1,15 +1,45 @@
 Jason Shin (jjs270)
 
 1. Revise ExpressionTree.java as explained below. Demonstrate these revisions and include sample output in your report.
-   a. In order to create the compute method, I created a stack of doubles called nums to keep track of all the operands
-      that I would be using. In the method, I followed steps similar to the printPostfix method. I checked to see if the
-      node passed in as an argument was not null. Then I checked if the left and right nodes were not null, in which case
-      compute would be run on both of them. If the node's data value is a digit, I would convert the char to a double and
-      push it to the nums stack. If the node's data value is not a digit (in other words, an operation), I would pop two
-      values from the nums stack and perform the operation, then push the result back onto the stack.
+   a. In order to write the compute method, I created a stack of doubles called nums outside the method to keep track
+      of all the operands that I would be using. In the method, I followed steps similar to the printPostfix method. I
+      checked to see if the node passed in as an argument was not null. Then I checked if the left and right nodes were
+      not null, in which case compute would be run on both of them. If the node's data value is a digit, I would convert
+      the char to a double and push it to the nums stack. If the node's data value is not a digit (in other words, an
+      operation), I would pop two values from the nums stack and perform the operation, then push the result back onto
+      the stack.
 
-      Sample Output:
-      
+      tree.printPostorder();
+      OUTPUT: "2345-*6-*"
+      System.out.println(tree.printPostorder());
+      OUTPUT: Evaluating Expression Tree: -18.0
+
+   b. In order to write the createTree method, I created two stacks: one for children (usually numbers) and one for
+      parents (operators). A fully parenthesized infix expression would be passed as an argument. I would iterate
+      through the string. If the current character is a ')', I would pop the operator from the parents stack and
+      pop the operands from the children stack. Then, I would create a new node with the first operator I popped
+      as the right node, the second operator I popped as the left node, and the operand I popped as data. I would
+      push this new node to the children stack. If the current character is not a ')', then I would check to see
+      whether or not the character is a digit. If it is a digit, I would push the character to the children stack.
+      If it is not a digit and not an open parenthesis (which only leaves operators), I would push the character
+      to the parents stack. At the end, the root would remain in the children stack, so I would pop that node and
+      return it.
+
+      Code in Driver:
+      while (infixInput == "") {
+          System.out.println("Input a fully parenthesized infix expression");
+          System.out.print("   Enter an expression: ");
+	  infixInput = sc.nextLine();
+	  testTree = testTree.createTree(infixInput);
+	  System.out.println("   Result: " + testTree.compute());								          } 
+
+      SAMPLE OUTPUT:
+      Enter an expression: (((2*(3+4))-5)/3)
+      Result: 3.0
+      Enter an expression: (1+1)
+      Result: 2.0
+      Enter an expression: ((4*2)-2)
+      Result: 6.0	    
 
 2. In your report, draw the state of a binary tree after each of the following (in order a – n):
 a. Insert 9
@@ -112,4 +142,14 @@ m. Remove 3
   1   
 n. Remove 9
 
-3. 
+3. Revise BinarySearchTree2.java to have “printPreorder” and “printPostorder” methods, similar to
+“printInorder”, but with preorder and postorder traversals, respectively. Demonstrate these revisions
+and include sample output in your report.
+
+In order to make the printPreorder and printPostorder methods, all I had to do was modify the printInorder
+method by changing where t.element was printed in relation to the recursive calls. All methods would check
+to see if the BinaryNode t is not null. For printInorder, the method would recursively call printInorder
+to the left node, then print out t.element, then recursively call printInorder to the right node. For
+printPreorder, t.element is printed out first, then the printPreorder is recursively called for the left
+node, then recursively called for the right node. For printPostorder, printPostorder is recursively called
+for the left node, then recursively called for the right node, then t.element is printed out last.

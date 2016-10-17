@@ -31,30 +31,30 @@ public class ExpressionTree
 
 	// Method that calls compute(Node n) and returns the answer
 	public double compute() {
-	    compute(this);
-	    return nums.pop(); 
+	    return compute(this);
+	    //return nums.pop(); 
 	}
 
 	// Nums Stack for computing the sum
-	public StackList<Double> nums = new StackList<Double>();
+	//public StackList<Double> nums = new StackList<Double>();
 
 	// Stack operations for computing the sum
-	public void compute(Node n) {
+	public double compute(Node n) {
 	    if (n != null) {
-		if (n.left != null) {
+		/*if (n.left != null) {
 		    compute(n.left);
 		}
 		if (n.right != null) {
 		    compute(n.right);
-		}
+		    }*/
 		if (Character.isDigit(n.data)) {
-		    nums.push((double)(n.data - '0'));
+		    return (double)n.data;
 		}
-		if (!Character.isDigit(n.data)) {
+		else {
 		    double result = 0;
 		    char operator = n.data;
-		    double operand2 = nums.pop();
-		    double operand1 = nums.pop();
+		    double operand1 = compute(n.left);
+		    double operand2 = compute(n.right);
 		    switch (operator) {
 		    case '+': result = operand1 + operand2;
 			break;
@@ -65,11 +65,13 @@ public class ExpressionTree
 		    case '/': result = operand1 / operand2;
 			break;
 		    }
-		    nums.push(result);
+		    return result;
 		}
+	    } else {
+		return;
 	    }
 	}
-
+	
 	// Stack for parent and children nodes
 	public StackList<Node> parents = new StackList<Node>();
 	public StackList<Node> children = new StackList<Node>();
@@ -134,6 +136,7 @@ public class ExpressionTree
 	    System.out.print("   Enter an expression: ");
 	    infixInput = sc.nextLine();
 	    testTree = testTree.createTree(infixInput);
+	    //testTree.printPostorder(testTree);
 	    System.out.println("   Result: " + testTree.compute());
 	}
 	//testTree = testTree.createTree("(((2*(3+4))-5)/3)");
