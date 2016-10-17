@@ -97,6 +97,44 @@ b. Give three (3) more unique insertion sequences that would generate the same t
 or more values must be in a different order.
 
 ORIGINAL: Insert 9 3 2 1 6 7 5 4 8
+
        1: Insert 9 7 2 1 6 3 5 4 8
        2: Insert 7 9 2 1 6 3 5 4 8
        3: Insert 7 9 2 6 1 3 5 4 8
+
+
+3 and 4. Implementation in MaxHeap.java. Demonstration of Sample Output and Deletion:
+   Sample output using the following insertions: 9,3,2,1,6,7,5,4,8 
+   Printing both array and tree
+   Array:
+   [9, 8, 7, 6, 3, 2, 5, 1, 4]
+   Tree:
+   9
+   8 7
+   6 3 2 5
+   1 4
+
+   Deleting Max 3 times
+   Deletion #1:
+   Array:
+   [8, 6, 7, 4, 3, 2, 5, 1]
+   Tree:
+   8
+   6 7
+   4 3 2 5
+   1
+   Deletion #2:
+   Array:
+   [7, 6, 5, 4, 3, 2, 1]
+   Tree:
+   7
+   6 5
+   4 3 2 1
+   Deletion #3:
+   Array:
+   [6, 4, 5, 1, 3, 2]
+   Tree:
+   6
+   4 5
+   1 3 2
+   
