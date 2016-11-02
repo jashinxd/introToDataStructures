@@ -1,0 +1,36 @@
+1. Using the hash function h(key) = key % 20, complete the following hash mappings:
+key | h(key)
+------------
+ 0  |   0
+ 1  | 	1
+ 19 |	19
+ 200|	0
+ 201|	1
+ 219|	19
+ 220|	0
+ 820|	0
+ 821|	1
+ 839|	19
+
+2. Using the hash function h(key) = key % 20, answer the following problems regarding collisions:
+   a. Give three key values that are not listed in problem # 1 above, and that all hash to h(key) = 0.
+      20, 440, 680
+   b. Give three key values that are not listed in problem # 1 above, and that all hash to h(key) = 3.
+      123, 263, 383
+   c. Give three key values that are not listed in problem # 1 above, and that all hash to h(key) = 15.
+      335, 575, 815
+
+3. a. calcCollisions(100)
+      Total collisions = 9900, Max collisions = 99
+   b. Use a hypothetical array size of 200. Include your program output in your report, and explain the
+      following:
+      Total collisions = 9800, Max collisions = 49
+      o Compared to (a), did the total collisions increase, decrease, or stay the same?
+      	Decrease
+      o Compared to (a), did the maximum collisions per index increase, decrease, or stay the same?
+      	Decrease
+      o Why do you think this happened? (Any reasonable answer will receive full credit.)
+        This happened because the total number of possible hashes increases, making it less likely that
+	there would be a collision for each key.
+
+4. 
